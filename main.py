@@ -1,3 +1,4 @@
+
 import streamlit as st
 import plotly.express as px
 import pandas as pd
@@ -23,22 +24,16 @@ st.set_page_config(layout = "wide")
 
 df_co2= get_co2_data()
 
-df_co2
-
 st.markdown("""
 # World CO2 emissions
 __The graphs below show the CO2 emissions per capita for the entire 
 world and individual countries over time.
 Select a year with the slider in the left-hand graph and countries 
 from the drop down menu in the other one.__
-
 __Scroll down to see charts demonstrating the correlation between 
 the level of CO2 and global warming.__
-
 __Hover over any of the charts to see more detail__
-
 ---
-
 """)
 
 col2, space2, col3 = st.columns((10,1,10))
@@ -71,7 +66,6 @@ col4, space3, col5,space4,col6 = st.columns((10,1,10,1,10))
 with col4:
     st.markdown("""
     ## Corelation between CO2 emission and global warming
-
     This can be seen in the adjacent graphs. 
     
     The first show temperature
@@ -81,7 +75,6 @@ with col4:
     points are the actual figures for each year and the line is a 
     lowess smoothing of those points so that we can more easily see 
     the trend).
-
     The second graph shows the rise in total CO2 emissions over the 
     same period and a similar trend can be seen with a sharp rise in 
     emissions mid-twentieth century.
@@ -95,11 +88,5 @@ with col6:
     st.subheader("Total world CO2 emissions")
     fig4 = px.line(df3.query("country == 'World' and year >= 1850"),"year","co2")
     st.plotly_chart(fig4, use_container_width=True)
-
-
-
-
-
-
 
 st.markdown('__Data Source:__ _Our World in Data CC BY_')
